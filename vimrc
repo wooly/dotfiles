@@ -128,8 +128,8 @@ map <Leader>f <Plug>DashSearch
 map <leader>F :Dash<space>
 
 " Explorer
-nmap <Leader>e :Vex <CR>
-nmap <Leader>E :Exp <CR>
+nmap <Leader>e :Exp <CR>
+nmap <Leader>E :Vex <CR>
 
 " Explorer display
 let g:netrw_liststyle=3
@@ -310,10 +310,15 @@ nnoremap <leader>W :call StripTrailingWhitespace()<CR>
 function! CreateSpecFile()
     vsplit
     let filePath = expand("%")
-    let fileName = expand("%:r")
-    echo "THe Filename" fileName
+    let fileName = fnamemodify(expand("%"), ":t:r")
     let specPath = substitute(substitute(filePath, "app", "spec", ""), fileName, fileName . "_spec", "")
     let stringCommand = ":e " . specPath
     execute stringCommand
+    execute 'normal! irequire "spec_helper"'
+    execute 'normal! o'
+    execute 'normal! odescribe '
+    let fileNameTitelize = fnamemodify(fileName, ":s?_?hhhhhhhhh
+    normal 
+    " TODO: eventually I would want to take the file name and describe
 endfunction
-nnoremap <leader>b :call CreateSpecFile()<CR>
+command AVN call CreateSpecFile()
