@@ -308,17 +308,20 @@ nnoremap <leader>W :call StripTrailingWhitespace()<CR>
 
 " Create Spec File
 function! CreateSpecFile()
-    vsplit
-    let filePath = expand("%")
-    let fileName = fnamemodify(expand("%"), ":t:r")
-    let specPath = substitute(substitute(filePath, "app", "spec", ""), fileName, fileName . "_spec", "")
-    let stringCommand = ":e " . specPath
-    execute stringCommand
-    execute 'normal! irequire "spec_helper"'
-    execute 'normal! o'
-    execute 'normal! odescribe '
-    let fileNameTitelize = fnamemodify(fileName, ":s?_?hhhhhhhhh
-    normal 
-    " TODO: eventually I would want to take the file name and describe
+    let fileExt = expand("%:e")
+    if fileExt == "rb"
+        vsplit
+        let filePath = expand("%")
+        let fileName = fnamemodify(expand("%"), ":t:r")
+        let specPath = substitute(substitute(filePath, "app", "spec", ""), fileName, fileName . "_spec", "")
+        let stringCommand = ":e " . specPath
+        execute stringCommand
+        execute "normal! irequire \"spec_helper\"\<cr>\<cr>describe "
+        let className = substitute(substitute(fileName, "_\\(\\w\\)", "\\U\\1", "g"), "\\w", "\\U\\0", "")
+        let stringWriteClass = "normal i " . className . " do\<cr>end\<esc>"
+        execute stringWriteClass
+    else
+        echo "Tried to create spec but not a Ruby file"
+    endif
 endfunction
 command AVN call CreateSpecFile()
