@@ -308,6 +308,12 @@ nnoremap <leader>W :call StripTrailingWhitespace()<CR>
 
 " Create Spec File
 function! CreateSpecFile()
-    normal expand("%:p")
+    vsplit
+    let filePath = expand("%")
+    let fileName = expand("%:r")
+    echo "THe Filename" fileName
+    let specPath = substitute(substitute(filePath, "app", "spec", ""), fileName, fileName . "_spec", "")
+    let stringCommand = ":e " . specPath
+    execute stringCommand
 endfunction
 nnoremap <leader>b :call CreateSpecFile()<CR>
