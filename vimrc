@@ -134,6 +134,9 @@ nmap <Leader>E :Vex <CR>
 " Explorer display
 let g:netrw_liststyle=3
 
+" Refresh all open windows
+nmap <Leader>% :windo e <CR>
+
 " ------------------------------------------------------------------------------
 " vroom
 " ------------------------------------------------------------------------------
