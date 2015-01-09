@@ -30,12 +30,3 @@ alias psql.server='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/
 alias gt='go test -v -cover ./...'
 alias gru='git remote update'
 alias tk='tmux kill-session -t'
-
-# Mode indicator
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
-    zle reset-prompt
-}
-
-export KEYTIMEOUT=1
