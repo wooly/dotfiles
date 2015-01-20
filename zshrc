@@ -30,3 +30,5 @@ alias psql.server='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/
 alias gt='go test -v -cover ./...'
 alias gru='git remote update'
 alias tk='tmux kill-session -t'
+alias rt='rspec spec && rubocop -R -a'
+alias et='ember test'
