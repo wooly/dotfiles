@@ -322,7 +322,7 @@ function! CreateSpecFile()
 
         "check if spec already exists
         if empty(glob(specPath))
-            execute "normal! irequire \"spec_helper\"\<cr>\<cr>describe "
+            execute "normal! irequire \"rails_helper\"\<cr>\<cr>describe "
             " regex could be simplified with matching word start
             let className = substitute(substitute(fileName, "_\\(\\w\\)", "\\U\\1", "g"), "\\w", "\\U\\0", "")
             let stringWriteClass = "normal i " . className . " do\<cr>end\<esc>"
