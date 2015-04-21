@@ -10,7 +10,7 @@
   pushsub = submodule foreach "git push origin master"
   pullsub = submodule foreach "git pull origin master"
 [user]
-  name = aldhsu
+  name = Allen Hsu
   email = 0allen_hsu@gmail.com
 [core]
   legacyheaders = false
@@ -31,3 +31,9 @@
   default = tracking
 [rerere]
   enabled = true
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE
+	path = 
+[mergetool "sourcetree"]
+	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
+	trustExitCode = true

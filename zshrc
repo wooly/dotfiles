@@ -22,7 +22,6 @@ alias a='tmux attach -t'
 alias g='git'
 alias v='vim'
 alias t='tmux'
-alias c='cd'
 alias z='zeus'
 alias s='spring'
 alias be='bundle exec'
@@ -34,3 +33,5 @@ alias rt='rspec spec && rubocop -R -a'
 alias et='ember test'
 alias kpg='rm /usr/local/var/postgres/postmaster.pid'
 alias rdb='rake db:migrate && rake db:test:prepare && rake db:seed RAILS_ENV=test'
+
+

@@ -52,6 +52,8 @@ path=(
   /usr/local/{bin,sbin}
   /opt/local/bin
   ~/.cargo/bin
+  /usr/local/Cellar/go/1.4.2/bin
+  /usr/local/opt/go/libexec/bin
   $path
 )
 
@@ -68,6 +70,8 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 if (( $+commands[lesspipe.sh] )); then
   export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
 fi
+
+export GOPATH=/Users/allen/Code/goCode
 
 #
 # Temporary Files
