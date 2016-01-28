@@ -36,6 +36,7 @@ set nu
 call plug#begin('~/.vim/plugged')
 
 " Language / syntax support.
+Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-cucumber'
@@ -62,6 +63,7 @@ Plug 'ap/vim-css-color'
 Plug 'ynkdir/vim-vimlparser' | Plug 'syngan/vim-vimlint'
 Plug 'mutewinter/tomdoc.vim'
 Plug 'cespare/vim-toml'
+Plug 'rizzatti/dash.vim'
 
 Plug 'janko-m/vim-test'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -90,13 +92,8 @@ let mapleader = ","               " Use comma as leader.
 " Save
 map <Leader>w :wa<CR>
 
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
-
 " Ag
-let g:agprg="ag --column --smart-case --ignore \"*.log\""
+let g:ag_prg="ag --column --smart-case --ignore \"*.log\""
 nnoremap <leader>a :Ag<space>
 
 " Rename buffer
@@ -120,14 +117,23 @@ nmap <Leader>n :nohlsearch<CR>
 
 " Save and run tests in Ruby
 
-au FileType ruby nmap <Leader>r :wa<CR>:VroomRunTestFile<CR>
-au FileType ruby nmap <Leader>R :wa<CR>:VroomRunNearestTest<CR>
-au FileType ruby imap <Leader>r <ESC>:wa<CR>:VroomRunTestFile<CR>
-au FileType ruby imap <Leader>R <ESC>:wa<CR>:VroomRunNearestTest<CR>
+nmap <silent> <leader>R :wa<CR> :TestNearest<CR>
+nmap <silent> <leader>r :wa<CR> :TestFile<CR>
+nmap <silent> <leader>l :wa<CR> :TestLast<CR>
+" nmap <silent> <leader>a :TestSuite<CR>
+" nmap <silent> <leader>g :TestVisit<CR>
+
+" au FileType ruby nmap <Leader>r :wa<CR>:VroomRunTestFile<CR>
+" au FileType ruby nmap <Leader>R :wa<CR>:VroomRunNearestTest<CR>
+" au FileType ruby imap <Leader>r <ESC>:wa<CR>:VroomRunTestFile<CR>
+" au FileType ruby imap <Leader>R <ESC>:wa<CR>:VroomRunNearestTest<CR>
+
+" Save and run tests in JavasScript
+au FileType javascript nmap <Leader>r :wa<CR>:RunEmberTest<CR>
 
 " Dash integration
 
-map <Leader>f <Plug>DashSearch
+map <Leader>f :Dash<CR>
 map <leader>F :Dash<space>
 
 " Explorer
@@ -140,12 +146,9 @@ let g:netrw_liststyle=3
 " Refresh all open windows
 nmap <Leader>% :windo e <CR>
 
-" ------------------------------------------------------------------------------
-" vroom
-" ------------------------------------------------------------------------------
-let g:vroom_map_keys = 0
-let g:vroom_use_dispatch = 0
-let g:vroom_use_spring = 1
+" JSON format
+nmap <Leader>j :%!python -m json.tool <CR>
+
 
 " ------------------------------------------------------------------------------
 " CtrlP
@@ -174,10 +177,11 @@ let g:airline_powerline_fonts = 1
 " the_silver_searcher
 " ------------------------------------------------------------------------------
 " Ignore log files.
-let g:agprg="ag --column --smart-case --ignore \"*.log\""
+let g:ag_prg="ag --column --smart-case --ignore \"*.log\""
 
 " Bind a key for quick searching
 nnoremap <leader>a :Ag<space>
+nnoremap <leader>A :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " ------------------------------------------------------------------------------
 " rails.vim
@@ -339,3 +343,16 @@ function! CreateSpecFile()
     endif
 endfunction
 command AVN call CreateSpecFile()
+
+function! RunTest()
+  let lineNumber = line('.')
+  while lineNumber > 0
+    let test = matchlist(getline(lineNumber), "it\((.*)\,")
+    if len(test) > 0
+      exe "!ember test --filter ".substitute(test[1], '"', '\\"', 'g'))
+    else
+      let lineNumber -= 1
+    endif
+  endwhile
+endfunction
+command RunEmberTest call RunTest()

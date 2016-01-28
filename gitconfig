@@ -11,7 +11,7 @@
   pullsub = submodule foreach "git pull origin master"
 [user]
   name = Allen Hsu
-  email = 0allen_hsu@gmail.com
+  email = allen.hsu@kinesis.org
 [core]
   legacyheaders = false
   excludesfile = ~/.gitexclude
@@ -28,12 +28,16 @@
   pushNonFastForward = false
   statusHints = false
 [push]
-  default = tracking
+	default = current
 [rerere]
   enabled = true
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE
+	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
 	path = 
 [mergetool "sourcetree"]
 	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
 	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
