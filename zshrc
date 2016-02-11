@@ -40,6 +40,7 @@ alias emberupdate='bower cache clean && npm cache clean && rm -rf bower_componen
 alias syncdb='JOBS=4 rake db:clear db:sync'
 alias lsaws-s='cd ~/Code/chef-repo/ && rake aws:instances && cd -'
 alias lsaws-p='cd ~/Code/chef-repo/ && ENVIRONMENT=production rake aws:instances  && cd -'
+alias gprunelocal='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | grep -v "staging" | xargs -n 1 git branch -d'
 
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 source /Users/Allen/.iterm2_shell_integration.zsh

@@ -134,8 +134,7 @@ au FileType javascript nmap <Leader>r :wa<CR>:RunEmberTest<CR>
 
 " Dash integration
 
-map <Leader>f :Dash<CR>
-map <leader>F :Dash<space>
+map <leader>F :Dash<CR>
 
 " Explorer
 nmap <Leader>e :Exp <CR>
