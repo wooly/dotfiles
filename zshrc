@@ -22,8 +22,62 @@ if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 # if which docker-machine > /dev/null; then
 #   eval "$(docker-machine env dev)";
 # fi
+#
+
+#functions
+startcity()
+{
+    osascript &>/dev/null <<EOF
+    tell application "iTerm 2"
+        tell current window
+            tell current tab
+                tell current session
+                    write text "mux start city-data"
+                end tell
+            end tell
+
+            set newTab to (create tab with default profile)
+            tell current tab
+                tell current session
+                    write text "mux start city-web"
+                end tell
+            end tell
+
+            set newTab to (create tab with default profile)
+            tell current tab
+                tell current session
+                    write text "mux start bouncer"
+                end tell
+            end tell
+        end tell
+    end tell
+EOF
+}
+
+startintegrated()
+{
+    osascript &>/dev/null <<EOF
+    tell application "iTerm 2"
+        tell current window
+            tell current tab
+                tell current session
+                    write text "mux start integrated-data"
+                end tell
+            end tell
+
+            set newTab to (create tab with default profile)
+            tell current tab
+                tell current session
+                    write text "mux start integrated-web"
+                end tell
+            end tell
+        end tell
+    end tell
+EOF
+}
 
 # Aliases
+
 unalias gb
 
 alias a='tmux attach -t'
