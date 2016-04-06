@@ -133,6 +133,7 @@ nmap <silent> <leader>l :wa<CR> :TestLast<CR>
 
 " Save and run tests in JavasScript
 au FileType javascript nmap <Leader>r :wa<CR>:RunEmberTest<CR>
+let g:syntastic_javascript_checkers=['jscs']
 
 " Dash integration
 
