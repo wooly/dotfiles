@@ -41,3 +41,6 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[user]
+	email = 0allen.hsu@gmail.com
+	name = Allen Hsu
