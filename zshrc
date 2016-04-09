@@ -82,7 +82,8 @@ unalias gb
 
 alias a='tmux attach -t'
 alias g='git'
-alias v='vim'
+alias v='nvim'
+alias n='nvim'
 alias t='tmux'
 alias z='zeus'
 alias s='spring'

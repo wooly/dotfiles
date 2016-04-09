@@ -41,7 +41,6 @@ Plug 'tpope/vim-haml'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rake'
 Plug 'vim-ruby/vim-ruby'
@@ -66,13 +65,16 @@ Plug 'cespare/vim-toml'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'apeschel/vim-syntax-syslog-ng'
 Plug 'evanmiller/nginx-vim-syntax'
+Plug 'klen/python-mode'
+
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'Soliah/vim-test'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'rking/ag.vim'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'henrik/rename.vim'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -86,6 +88,7 @@ call plug#end()
 
 source ~/.vim/platform.vim
 source ~/.vim/core.vim
+source ~/.vim/plugins.vim
 source ~/.vim/mappings.vim
 " ------------------------------------------------------------------------------
 " Binds
@@ -303,10 +306,6 @@ if !exists(":Rails!")
   endfunction
   au BufNewFile,BufRead *_spec.rb call SyntaxForRspec()
 endif
-
-for g:f in split(glob('~/.vim/plugins/*.vim'), '\n')
-  exe 'source' g:f
-endfor
 
 " Strip Trailing Whitespace
 function! StripTrailingWhitespace()
