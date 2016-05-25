@@ -52,6 +52,9 @@ source ~/.vim/core.vim
 source ~/.vim/plugins.vim
 source ~/.vim/mappings.vim
 
+" netrw
+let g:netrw_liststyle=3
+
 " Strip Trailing Whitespace
 function! StripTrailingWhitespace()
     if !&binary && &modifiable && &filetype != 'diff'
