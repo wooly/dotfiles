@@ -69,7 +69,7 @@ Plug 'klen/python-mode'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'Soliah/vim-test'
+Plug 'aldhsu/vim-test'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'henrik/rename.vim'
@@ -135,7 +135,6 @@ nmap <silent> <leader>l :wa<CR> :TestLast<CR>
 " au FileType ruby imap <Leader>R <ESC>:wa<CR>:VroomRunNearestTest<CR>
 
 " Save and run tests in JavasScript
-au FileType javascript nmap <Leader>r :wa<CR>:RunEmberTest<CR>
 let g:syntastic_javascript_checkers=['jscs']
 
 " Dash integration
@@ -154,6 +153,9 @@ nmap <Leader>% :windo e <CR>
 
 " JSON format
 nmap <Leader>j :%!python -m json.tool <CR>
+
+" Yank filename into buffer
+nmap <Leader>n :let @" = expand("%")<CR>
 
 
 " ------------------------------------------------------------------------------
@@ -344,16 +346,3 @@ function! CreateSpecFile()
     endif
 endfunction
 command AVN call CreateSpecFile()
-
-function! RunTest()
-  let lineNumber = line('.')
-  while lineNumber > 0
-    let test = matchlist(getline(lineNumber), "it\((.*)\,")
-    if len(test) > 0
-      exe "!ember test --filter ".substitute(test[1], '"', '\\"', 'g'))
-    else
-      let lineNumber -= 1
-    endif
-  endwhile
-endfunction
-command RunEmberTest call RunTest()
