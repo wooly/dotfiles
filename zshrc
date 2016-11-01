@@ -31,6 +31,7 @@ alias g='git'
 alias v='nvim'
 alias n='nvim'
 alias t='tmux'
+alias mux='tmuxinator'
 alias c='cd'
 alias z='zeus'
 alias s='spring'
@@ -42,3 +43,8 @@ alias grus='g ru && g s'
 alias npmbower='npm cache clean && bower cache clean && npm install && bower install'
 alias reinstalldep='rm -rf node_modules bower_components dist tmp && npmbower'
 alias rt='be rspec spec && be rubocop -R -a'
+alias lsaws-s='cd ~/Code/chef-repo/ && rake aws:instances && cd -'
+
+# Functions
+repl() { perl -pi -w -e "s/$1/$2/g;" * }
+replr() { perl -p -i -e "s/$1/$2/g" `grep -ril $1 *` }
