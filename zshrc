@@ -11,8 +11,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Source base16 256 colourspace script.
-if [[ -s "$HOME/.colours/base16-shell/base16-tomorrow.dark.sh" ]]; then
-  source "$HOME/.colours/base16-shell/base16-tomorrow.dark.sh"
+if [[ -s "$HOME/.colours/base16-shell/scripts/base16-tomorrow-night.sh" ]]; then
+  source "$HOME/.colours/base16-shell/scripts/base16-tomorrow-night.sh"
 fi
 
 # Load direnv
@@ -37,7 +37,7 @@ alias z='zeus'
 alias s='spring'
 alias be='bundle exec'
 alias psql.server='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log'
-alias gt='go test -v -cover ./...'
+alias gt='go test -v -cover $(go list ./... | grep -v vendor)'
 alias grul='g ru && g l'
 alias grus='g ru && g s'
 alias npmbower='npm cache clean && bower cache clean && npm install && bower install'
