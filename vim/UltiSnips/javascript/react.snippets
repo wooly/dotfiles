@@ -1,0 +1,39 @@
+snippet kcc "Kinesis Class Component" b
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+class ${1:`!v expand('%:t:r')`} extends Component {
+	static propTypes = {
+		${2:children: PropTypes.node,
+		className: PropTypes.string,}
+	};
+
+	state = {
+
+	}
+
+	render() {
+		return (
+		);
+	}
+}
+
+export default $1;
+endsnippet
+
+snippet kpc "Kinesis Page Component" b
+import React, { Component } from 'react';
+
+class ${1:`!v expand('%:t:r')`} extends Component {
+	state = {
+
+	}
+
+	render() {
+		return (
+		);
+	}
+}
+
+export default $1;
+endsnippet

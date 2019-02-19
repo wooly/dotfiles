@@ -50,3 +50,11 @@ if !exists(':Rename!')
 end
 
 nnoremap <leader>t :Files<CR>
+
+nnoremap <leader>/ :noh<CR>
+nnoremap <leader>n :noh<CR>
+
+nnoremap <space>ev :e ~/.vimrc<CR>
+nnoremap <space>sv :so ~/.vimrc<CR>
+
+nnoremap <space>rr :!bundle exec rake routes<CR>

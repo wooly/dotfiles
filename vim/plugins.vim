@@ -88,3 +88,10 @@ let test#strategy = 'neovim'
 " neomake
 let g:neomake_python_enabled_makers = []
 autocmd! BufWritePost * Neomake
+
+" GitGutter styling to use · instead of +/-
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
+

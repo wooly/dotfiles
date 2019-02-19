@@ -40,6 +40,8 @@ set tags+=tags                               " Enable tags.
 
 set selection=inclusive                      " Select to the end of line.
 
+set nu                                       " Enable line numbers.
+
 filetype on                                  " Detect file type.
 filetype indent on                           " Enable file indenting.
 filetype plugin indent on                    " Load syntax files for better indenting.
@@ -117,6 +119,7 @@ set fillchars+=stl:\ ,stlnc:\ " Space.       " Disable status line fill chars.
 set showcmd                                  " Show last command.
 set noshowmode                               " Don't show the mode since airline shows it
 set title                                    " Set the title of the window in the terminal to the file
+set colorcolumn=80                           " Show a grey column at 80 characters
 
 if exists('+colorcolumn')
   highlight colorcolumn ctermbg=236 guibg=#262D51

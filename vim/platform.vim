@@ -25,7 +25,7 @@ elseif has('gui_macvim')
 
   " Custom Source Code font for Powerline
   " From: https://github.com/Lokaltog/powerline-fonts
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h13
   set lines=52                      " Window size.
   set columns=165
   set vb                            " Disable the audible bell.

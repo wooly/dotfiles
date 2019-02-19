@@ -7,6 +7,9 @@ Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rake'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'vim-ruby/vim-ruby'
 Plug 'dsawardekar/portkey' | Plug 'dsawardekar/ember.vim'
 Plug 'mustache/vim-mustache-handlebars'
@@ -18,7 +21,9 @@ Plug 'groenewege/vim-less'
 Plug 'elzr/vim-json'
 Plug 'noprompt/vim-yardoc'
 Plug 'othree/html5.vim'
-Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'ap/vim-css-color'
 Plug 'ynkdir/vim-vimlparser' | Plug 'syngan/vim-vimlint'
 Plug 'mutewinter/tomdoc.vim'
@@ -38,6 +43,7 @@ Plug 'benekastah/neomake'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'SirVer/ultisnips'
+Plug 'epilande/vim-react-snippets'
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'dyng/auto_mkdir'
@@ -62,3 +68,6 @@ function! StripTrailingWhitespace()
     endif
 endfunction
 nnoremap <leader>W :call StripTrailingWhitespace()<CR>
+
+command! Wa :wa
+command! WA :wa
