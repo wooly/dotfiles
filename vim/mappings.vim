@@ -58,3 +58,5 @@ nnoremap <space>ev :e ~/.vimrc<CR>
 nnoremap <space>sv :so ~/.vimrc<CR>
 
 nnoremap <space>rr :!bundle exec rake routes<CR>
+
+nnoremap <space>ct :checktime<CR>
