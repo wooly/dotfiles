@@ -33,9 +33,6 @@ if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
 export PROMPT="%F{blue}%M%f %F{red}❯%f%F{yellow}❯%f%F{green}❯%f %~"$'\n'"%(?.%F{green}❯%f.%F{red}❯%f) "
 
-# Aliases
-unalias gb
-
 alias a='tmux attach -t'
 alias g='git'
 alias v='nvim'
@@ -71,3 +68,5 @@ alias kconfig='f() { export KUBECONFIG=~/version-control/kube-config/sydney-$1.c
 source <(kubectl completion zsh)
 source $(brew --prefix asdf)/asdf.sh
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
