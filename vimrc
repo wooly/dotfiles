@@ -38,8 +38,6 @@ Plug 'SirVer/ultisnips'
 Plug 'epilande/vim-react-snippets'
 Plug 'Valloric/YouCompleteMe'
 Plug 'dyng/auto_mkdir'
-
-" Themes
 Plug 'chriskempson/base16-vim'
 
 call plug#end()
