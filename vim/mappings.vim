@@ -40,7 +40,7 @@ end
 if !exists(':TestFile')
   nnoremap <silent> <leader>R :w<CR> :TestNearest<CR>
   nnoremap <silent> <leader>r :w<CR> :TestFile<CR>
-  nnoremap <silent> <leader>a :w<CR> :TestSuite<CR>
+  nnoremap <silent> <leader>s :w<CR> :TestSuite<CR>
   nnoremap <silent> <leader>l :w<CR> :TestLast<CR>
   nnoremap <silent> <leader>g :w<CR> :TestVisit<CR>
 end
@@ -60,3 +60,6 @@ nnoremap <space>sv :so ~/.vimrc<CR>
 nnoremap <space>rr :!bundle exec rake routes<CR>
 
 nnoremap <space>ct :checktime<CR>
+nnoremap <space>bt :bot sp <Bar> :term<CR>a
+nnoremap <space>rt :bot vs <Bar> :term<CR>a
+nnoremap <space>ug :!yarn eslint:fix<CR>
