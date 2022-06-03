@@ -26,7 +26,7 @@ the colourspace script loaded in `~/.zshrc.`
 
 **Backup your existing dotfiles first.**
 
-1. Clone the repo `git clone --recursive https://github.com/Soliah/dotfiles.git`
+1. Clone the repo `git clone --recursive https://github.com/wooly/dotfiles.git`
 2. Run `ruby go.rb`
 3. Import the base-16 iTerm2 colour scheme into iTerm2.
 4. Launch vim, ignoring any errors, and run `:PlugInstall`.
