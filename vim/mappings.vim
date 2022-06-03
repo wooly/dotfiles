@@ -62,4 +62,4 @@ nnoremap <space>rr :!bundle exec rake routes<CR>
 nnoremap <space>ct :checktime<CR>
 nnoremap <space>bt :bot sp <Bar> :term<CR>a
 nnoremap <space>rt :bot vs <Bar> :term<CR>a
-nnoremap <space>ug :!yarn eslint:fix<CR>
+nnoremap <space>ug :cexpr system('yarn eslint:fix --format unix') <Bar> :copen<CR>

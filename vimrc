@@ -7,6 +7,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-fubitive'
 Plug 'dsawardekar/portkey' | Plug 'dsawardekar/ember.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'kchmck/vim-coffee-script'
@@ -16,8 +18,8 @@ Plug 'elzr/vim-json'
 Plug 'noprompt/vim-yardoc'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
 Plug 'ap/vim-css-color'
 Plug 'ynkdir/vim-vimlparser' | Plug 'syngan/vim-vimlint'
 Plug 'mutewinter/tomdoc.vim'
@@ -25,9 +27,9 @@ Plug 'hashivim/vim-hashicorp-tools'
 Plug 'apeschel/vim-syntax-syslog-ng'
 Plug 'klen/python-mode'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'janko-m/vim-test'
+Plug 'vim-test/vim-test'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'henrik/rename.vim'
@@ -37,8 +39,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'SirVer/ultisnips'
 Plug 'epilande/vim-react-snippets'
 Plug 'Valloric/YouCompleteMe'
+
 Plug 'dyng/auto_mkdir'
 Plug 'chriskempson/base16-vim'
+Plug 'jxnblk/vim-mdx-js'
 
 call plug#end()
 
