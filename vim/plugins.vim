@@ -15,11 +15,6 @@ let g:ycm_filetype_specific_completion_to_disable = {
       \ 'rust': 1
       \}
 
-" Ultisnips
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
 " Pymode
 let g:pymode_options = 0
 let g:pymode_folding = 0
