@@ -3,18 +3,6 @@ let g:airline_powerline_fonts = 0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
-" YouCompleteMe
-let g:ycm_collect_identifiers_from_tags_files = 1            " Use tags files.
-let g:ycm_seed_identifiers_with_syntax = 1                   " Use identifiers from syntax files.
-let g:ycm_collect_identifiers_from_comments_and_strings = 1  " Use identifiers from comments
-let g:ycm_complete_in_comments = 1                           " Also complete within comments
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_python_binary_path = '/usr/local/bin/python3'
-let g:ycm_server_python_interpreter = "/opt/homebrew/bin/python3"
-let g:ycm_filetype_specific_completion_to_disable = {
-      \ 'rust': 1
-      \}
-
 " Pymode
 let g:pymode_options = 0
 let g:pymode_folding = 0
@@ -23,11 +11,6 @@ let g:pymode_lint_cwindow = 0
 let g:pymode_rope = 0
 let g:pymode_lint = 0
 let g:pymode_lint_checkers = []
-
-" vim-rails
-
-" Set ctags command so that tags are supported by YouCompleteMe
-let g:rails_ctags_arguments = ['--languages=-javascript', '--fields=+l', '--exclude=.git', '--exclude=log']
 
 " When not in a Rails project, vim-rails doesn't highlight RSpec files. Do it manually.
 if !exists(":Rails!")
