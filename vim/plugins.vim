@@ -9,7 +9,7 @@ let g:ycm_seed_identifiers_with_syntax = 1                   " Use identifiers f
 let g:ycm_collect_identifiers_from_comments_and_strings = 1  " Use identifiers from comments
 let g:ycm_complete_in_comments = 1                           " Also complete within comments
 let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_python_binary_path = '/usr/local/bin/python4'
+let g:ycm_python_binary_path = '/usr/local/bin/python3'
 let g:ycm_server_python_interpreter = "/opt/homebrew/bin/python3"
 let g:ycm_filetype_specific_completion_to_disable = {
       \ 'rust': 1
@@ -131,10 +131,6 @@ let g:fzf_colors =
 
 " vim-test
 let test#strategy = 'neovim'
-
-" neomake
-let g:neomake_python_enabled_makers = []
-autocmd! BufWritePost * Neomake
 
 " GitGutter styling to use · instead of +/-
 let g:gitgutter_sign_added = '∙'

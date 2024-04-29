@@ -22,6 +22,8 @@ alias nukebranches='git remote prune origin && g branch -vv | grep "\[origin/.*:
 alias popr='git rev-parse --abbrev-ref HEAD | xargs git push -u origin 2>&1 | grep -o "https://.*pull.*" | xargs open'
 alias ug="git commit -am 'All hail eslint, king of the linters'"
 alias cq='f() { cd ~/version-control/colloquial/$1 };f'
+alias pairer='ssh -f -N -T -R22222:localhost:22 steve@bastion'
+alias pairee='ssh -f -N -T -L 22222:localhost:22222 steve@bastion'
 
 # Kubectl autocomplete
 source <(kubectl completion zsh)
