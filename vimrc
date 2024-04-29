@@ -29,6 +29,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'dyng/auto_mkdir'
 Plug 'chriskempson/base16-vim'
 Plug 'jxnblk/vim-mdx-js'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
