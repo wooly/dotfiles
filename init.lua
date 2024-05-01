@@ -41,3 +41,7 @@ vim.call('plug#end')
 vim.cmd('source ~/.vim/core.vim')
 vim.cmd('source ~/.vim/plugins.vim')
 vim.cmd('source ~/.vim/mappings.vim')
+
+vim.api.nvim_create_user_command('W', 'w', {})
+vim.api.nvim_create_user_command('Wa', 'wa', {})
+vim.api.nvim_create_user_command('WA', 'wa', {})
