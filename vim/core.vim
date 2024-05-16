@@ -102,4 +102,7 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 
+au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab
+au FileType go setlocal noexpandtab nolist
+
 set rtp+=/usr/local/bin/fzf
