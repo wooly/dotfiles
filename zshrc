@@ -18,15 +18,12 @@ alias bx='bundle exec'
 alias k='kubectl'
 
 alias kconfig='f() { export KUBECONFIG=~/.kube/kubeconfig_$1 };f'
-alias nukebranches='git remote prune origin && g branch -vv | grep "\[origin/.*: gone]" | tr -s " " | cut -d" " -f 2 | xargs git branch -d'
+alias nuke='git remote prune origin && g branch -vv | grep "\[origin/.*: gone]" | tr -s " " | cut -d" " -f 2 | xargs git branch -d'
 alias popr='git rev-parse --abbrev-ref HEAD | xargs git push -u origin 2>&1 | grep -o "https://.*pull.*" | xargs open'
 alias ug="git commit -am 'All hail eslint, king of the linters'"
 alias cq='f() { cd ~/version-control/colloquial/$1 };f'
 alias pairer='ssh -f -N -T -R22222:localhost:22 steve@bastion'
 alias pairee='ssh -f -N -T -L 22222:localhost:22222 steve@bastion'
-
-# Kubectl autocomplete
-source <(kubectl completion zsh)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -34,4 +31,3 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export BUNDLER_EDITOR=nvim
 
 . $HOME/.asdf/asdf.sh
-eval "$(rbenv init - zsh)"
