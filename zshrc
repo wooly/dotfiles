@@ -26,8 +26,9 @@ alias pairer='ssh -f -N -T -R22222:localhost:22 steve@bastion'
 alias pairee='ssh -f -N -T -L 22222:localhost:22222 steve@bastion'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$GEM_HOME/bin:$PATH"
 export BUNDLER_EDITOR=nvim
 
 . $HOME/.asdf/asdf.sh
