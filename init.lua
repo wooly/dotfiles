@@ -37,8 +37,11 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/cmp-path'
+Plug('L3MON4D3/LuaSnip', {['tag'] = 'v2.*', ['do'] = vim.fn['make install_jsregexp']})
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'aymericbeaumet/vim-symlink'
+Plug 'moll/vim-bbye'
 
 vim.call('plug#end')
 
@@ -110,26 +113,28 @@ cmp.setup {
   },
 }
 
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local mason_lspconfig = require("mason-lspconfig")
 local servers = {
-  ruby_lsp = {},
+  ruby_lsp = {
+    cmd = { '/Users/steve/.asdf/shims/ruby-lsp' },
+  },
 }
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
--- mason_lspconfig.setup_handlers {
---   function(server_name)
---     require("lspconfig")[server_name].setup {
---       capabilities = capabilities,
---       on_attach = on_attach,
---       settings = servers[server_name],
---       filetypes = (servers[server_name] or {}).filetypes,
---     }
---   end
--- }
+mason_lspconfig.setup_handlers {
+  function(server_name)
+    require("lspconfig")[server_name].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = servers[server_name],
+      filetypes = (servers[server_name] or {}).filetypes,
+      cmd = (servers[server_name] or {}).cmd,
+    }
+  end
+}

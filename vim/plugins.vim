@@ -100,6 +100,7 @@ let g:fzf_colors =
 
 " vim-test
 let test#strategy = 'neovim'
+let test#go#gotest#options = '-v'
 
 " GitGutter styling to use · instead of +/-
 let g:gitgutter_sign_added = '∙'
