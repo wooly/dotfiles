@@ -28,7 +28,13 @@ alias pairee='ssh -f -N -T -L 22222:localhost:22222 steve@bastion'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$GEM_HOME/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$GEM_HOME/bin:/opt/homebrew/opt/libpq/bin:$PATH"
 export BUNDLER_EDITOR=nvim
 
-. $HOME/.asdf/asdf.sh
+eval "$(~/.local/bin/mise activate zsh)"
+
+# go
+export PATH="${PATH}:$(go env GOPATH)/bin"
+
+# Added by Windsurf
+export PATH="/Users/steve/.codeium/windsurf/bin:$PATH"
