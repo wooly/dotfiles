@@ -35,6 +35,3 @@ eval "$(~/.local/bin/mise activate zsh)"
 
 # go
 export PATH="${PATH}:$(go env GOPATH)/bin"
-
-# Added by Windsurf
-export PATH="/Users/steve/.codeium/windsurf/bin:$PATH"

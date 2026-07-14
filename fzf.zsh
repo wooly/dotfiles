@@ -10,4 +10,4 @@ fi
 
 # Key bindings
 # ------------
-source "/opt/homebrew/Cellar/fzf/0.50.0/shell/key-bindings.zsh"
+source "/opt/homebrew/Cellar/fzf/0.72.0/shell/key-bindings.zsh"

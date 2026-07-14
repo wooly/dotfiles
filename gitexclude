@@ -6,3 +6,5 @@ Thumbs.db
 node_modules
 yarn.lock
 .terraform
+
+**/.claude/settings.local.json
